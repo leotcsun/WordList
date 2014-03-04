@@ -1,0 +1,12 @@
+<h1>Add New Words</h1>
+
+<%= form_for :words, url: words_path do |f| %>
+    <div>
+        <%= f.label :content %>
+        <%= f.text_area :content %>
+    </div>
+
+    <div>
+        <%= f.submit %>
+    </div>
+<% end %>

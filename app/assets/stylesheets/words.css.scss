@@ -3,6 +3,11 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 .word-spelling {
-    height: 50px;
+    min-height: 50px;
     font-size: 25px;
+    padding-left: 30px;
+}
+
+.word-definition {
+    padding-left: 10px;
 }

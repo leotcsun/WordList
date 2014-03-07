@@ -8,3 +8,4 @@ $(document).ready ->
         console.log(this)
         index = $(this).attr("data-index")
         $("#word-definition-" + index).toggle()
+

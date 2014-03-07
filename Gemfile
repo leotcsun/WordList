@@ -3,7 +3,6 @@ source 'https://rubygems.org'
 gem 'rails', '4.0.3'
 gem 'thin'
 
-gem 'sqlite3'
 gem 'pg'
 
 gem 'sass-rails', '~> 4.0.0'

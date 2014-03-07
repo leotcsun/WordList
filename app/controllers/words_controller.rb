@@ -19,7 +19,7 @@ class WordsController < ApplicationController
   end
 
   def index
-    @words = Word.all
+    @words = Word.order("RANDOM()").all
   end
 
 end

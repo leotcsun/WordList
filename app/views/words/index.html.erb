@@ -1,3 +1,6 @@
-<% @words.each do |word| %>
-    <div><%= word.spelling %> | <%= word.definition %></div>
+<% @words.each_with_index do |word, i| %>
+    <div class="row">
+        <div class="col-sm-4 word-spelling bg-info" data-index="<%= i %>"><%= word.spelling %></div>
+        <div class="col-sm-8 bg-danger" id="word-definition-<%= i %>" style="display:none"><%= word.definition %></div>
+    </div>
 <% end %>

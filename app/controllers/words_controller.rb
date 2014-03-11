@@ -19,7 +19,18 @@ class WordsController < ApplicationController
   end
 
   def index
-    @words = Word.order("RANDOM()").all
+    @words = Word.order(:spelling).all
+  end
+
+  def test
+    order = params[:order] ? params[:order] : "RANDOM"
+
+    case order
+    when "ALPHA"
+      @words = Word.order(:spelling).all
+    else
+      @words = Word.order("RANDOM()").all
+    end
   end
 
 end

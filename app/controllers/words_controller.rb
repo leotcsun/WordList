@@ -33,4 +33,16 @@ class WordsController < ApplicationController
     end
   end
 
+  def update
+    word = Word.where(:id => params[:id]).first
+
+    puts "word is #{word.inspect}"
+
+    word.spelling = params[:spelling]
+    word.definition = params[:definition]
+    word.save
+
+    redirect_to :words
+  end
+
 end

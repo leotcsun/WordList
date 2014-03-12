@@ -2,6 +2,7 @@ WordList::Application.routes.draw do
 
   resources :words
   get "/test/(:order)", to: "words#test", as: "test"
+  get "/edit_all", to: "words#edit_all", as: "edit_all"
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

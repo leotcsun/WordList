@@ -1,0 +1,7 @@
+<% @words.each_with_index do |word, i| %>
+    <%= form_tag("/words/#{word.id}", :method => "put") do %>
+        <%= text_field_tag(:spelling, word.spelling) %>
+        <%= text_area_tag(:definition, word.definition) %>
+        <%= submit_tag("Update") %>
+    <% end %>
+<% end %>

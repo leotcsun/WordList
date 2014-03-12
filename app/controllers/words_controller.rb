@@ -3,6 +3,9 @@ class WordsController < ApplicationController
   def new
   end
 
+  def show
+  end
+
   def create
     words = params[:words][:content].split(/\r?\n/)
 
@@ -31,6 +34,10 @@ class WordsController < ApplicationController
     else
       @words = Word.order("RANDOM()").all
     end
+  end
+
+  def edit_all
+    @words = Word.order(:spelling).all
   end
 
   def update

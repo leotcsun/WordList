@@ -28,7 +28,7 @@ class WordsController < ApplicationController
   def test
     order = params[:order] ? params[:order] : "RANDOM"
 
-    case order
+    case order.upcase
     when "ALPHA"
       @words = Word.order(:spelling).all
     else

@@ -1,5 +1,6 @@
 <%= link_to "Random", test_path(:order => "RANDOM") %>
 <%= link_to "Alphabetical", test_path(:order => "ALPHA") %>
+<%= link_to "TimeAdded", test_path(:order => "TIME") %>
 
 <% @words.each_with_index do |word, i| %>
     <div class="row">

@@ -26,11 +26,13 @@ class WordsController < ApplicationController
   end
 
   def test
-    order = params[:order] ? params[:order] : "RANDOM"
+    order = params[:order] or "RANDOM"
 
     case order.upcase
     when "ALPHA"
       @words = Word.order(:spelling).all
+    when "TIME"
+      @words = Word.order("DATE(created_at) DESC").all
     else
       @words = Word.order("RANDOM()").all
     end

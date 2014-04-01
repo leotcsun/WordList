@@ -1,12 +1,14 @@
 class WordsController < ApplicationController
 
   def new
+    @lists = List.all
   end
 
   def show
   end
 
   def create
+    list_id = params[:words][:list_id]
     words = params[:words][:content].split(/\r?\n/)
 
     words.each do |w|
@@ -15,7 +17,7 @@ class WordsController < ApplicationController
       pair = w.split(":")
       spelling, definition = pair[0].strip, pair[1].strip
 
-      Word.create(:spelling => spelling, :definition => definition)
+      Word.create(:spelling => spelling, :definition => definition, :list_id => list_id)
     end
 
     redirect_to :words
@@ -26,16 +28,20 @@ class WordsController < ApplicationController
   end
 
   def test
-    order = params[:order] or "RANDOM"
+    list_id = params[:list_id]
+
+    order = params[:order] ? params[:order] : "RANDOM"
 
     case order.upcase
     when "ALPHA"
-      @words = Word.order(:spelling).all
+      @words = Word.order(:spelling)
     when "TIME"
-      @words = Word.order("DATE(created_at) DESC").all
+      @words = Word.order("DATE(created_at) DESC")
     else
-      @words = Word.order("RANDOM()").all
+      @words = Word.order("RANDOM()")
     end
+
+    @words = @words.where(:list_id => list_id)
   end
 
   def edit_all

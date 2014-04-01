@@ -2,6 +2,8 @@
 
 <%= form_for :words, url: words_path do |f| %>
     <div>
+        <%= collection_select(:words, :list_id, @lists, :id, :name, prompt: true) %>
+        <br>
         <%= f.label :content %>
         <%= f.text_area :content %>
     </div>

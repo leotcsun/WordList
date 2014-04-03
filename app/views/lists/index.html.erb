@@ -1,4 +1,5 @@
 <%= link_to "Create a New List", new_list_path %>
+<br><br>
 
 <% @lists.each do |list| %>
     <%= link_to list.name, test_path(:list_id => list.id) %>

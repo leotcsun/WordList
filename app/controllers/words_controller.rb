@@ -33,16 +33,16 @@ class WordsController < ApplicationController
 
     order = params[:order] ? params[:order] : "RANDOM"
 
+    @words = Word.where(:list_id => list_id)
+
     case order.upcase
     when "ALPHA"
-      @words = Word.order(:spelling)
+      @words = @words.order(:spelling)
     when "TIME"
-      @words = Word.order("DATE(created_at) DESC")
+      @words = @words.order("DATE(created_at) DESC")
     else
-      @words = Word.order("RANDOM()")
+      @words = @words.order("RANDOM()")
     end
-
-    @words = @words.where(:list_id => list_id)
   end
 
   def edit_all

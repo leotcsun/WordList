@@ -9,12 +9,13 @@ class WordsController < ApplicationController
 
   def create
     list_id = params[:words][:list_id]
+    delimiter = params[:words][:delimiter]
     words = params[:words][:content].split(/\r?\n/)
 
     words.each do |w|
       next if w.strip.empty?
 
-      pair = w.split(":")
+      pair = w.split(delimiter)
       spelling, definition = pair[0].strip, pair[1].strip
 
       Word.create(:spelling => spelling, :definition => definition, :list_id => list_id)

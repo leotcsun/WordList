@@ -2,9 +2,14 @@
 
 <%= form_for :words, url: words_path do |f| %>
     <div>
-        <%= collection_select(:words, :list_id, @lists, :id, :name, prompt: true) %>
+        <%= f.label :delimiter %>
         <br>
+        <%= f.text_field :delimiter %>
+        <br><br>
+        <%= collection_select(:words, :list_id, @lists, :id, :name, prompt: true) %>
+        <br><br>
         <%= f.label :content %>
+        <br>
         <%= f.text_area :content %>
     </div>
 

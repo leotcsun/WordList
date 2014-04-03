@@ -6,11 +6,10 @@ ready = ->
     count = 0
 
     $(".word-spelling").click (e) ->
-        console.log(this)
         index = $(this).attr("data-index")
 
         word = $("#word-definition-" + index)
-        counter = $("#click-counter")
+        counter = $("#click-counter #click")
 
         $("#word-definition-" + index).toggle()
         counter.text(++count) if word.is(":visible")

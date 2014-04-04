@@ -12,10 +12,16 @@ class WordsController < ApplicationController
     delimiter = params[:words][:delimiter]
     words = params[:words][:content].split(/\r?\n/)
 
-    words.each do |w|
-      next if w.strip.empty?
+    words.each do |word|
+      next if word.strip.empty?
 
-      pair = w.split(delimiter)
+      if delimiter.blank?
+        index = word.index(" ")
+        pair = [word[0..index], word[(index+1)..word.size]]
+      else
+        pair = word.split(delimiter)
+      end
+
       spelling, definition = pair[0].strip, pair[1].strip
 
       Word.create(:spelling => spelling, :definition => definition, :list_id => list_id)
@@ -37,7 +43,7 @@ class WordsController < ApplicationController
 
     case order.upcase
     when "ALPHA"
-      @words = @words.order(:spelling)
+      @words = @words.order(:wordcontspelling)
     when "TIME"
       @words = @words.order("DATE(created_at) DESC")
     else

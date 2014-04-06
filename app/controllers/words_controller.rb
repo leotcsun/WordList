@@ -27,11 +27,17 @@ class WordsController < ApplicationController
       Word.create(:spelling => spelling, :definition => definition, :list_id => list_id)
     end
 
-    redirect_to :words
+    redirect_to :controller => :words, :action => :index, :list_id => list_id
   end
 
   def index
-    @words = Word.order(:spelling).all
+    if params[:list_id]
+      @words = Word.where(:list_id => params[:list_id])
+    else
+      @words = Word.all
+    end
+
+    @words = @words.order(:spelling)
   end
 
   def test

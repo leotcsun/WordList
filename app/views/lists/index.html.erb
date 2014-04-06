@@ -2,6 +2,12 @@
 <br><br>
 
 <% @lists.each do |list| %>
-    <%= link_to list.name, test_path(:list_id => list.id) %>
-    <br>
+    <div class="row">
+        <div class="col-sm-1">
+            <%= link_to list.name, words_path(:list_id => list.id) %>
+        </div>
+        <div class="col-sm-8">
+            <%= link_to "Test", test_path(:list_id => list.id) %>
+        </div>
+    </div>
 <% end %>

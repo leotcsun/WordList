@@ -1,6 +1,16 @@
+<nav class="navbar navbar-default" role="navigation">
+    <%= paginate @words %>
+</nav>
+
 <% @words.each_with_index do |word, i| %>
     <div class="row">
         <div class="col-sm-4 word-spelling bg-info" data-index="<%= i %>"><%= word.spelling %></div>
         <div class="col-sm-8 bg-danger word-spelling" id="word-definition-<%= i %>"><%= word.definition %></div>
     </div>
 <% end %>
+
+<br>
+
+<nav class="navbar navbar-default" role="navigation">
+    <%= paginate @words %>
+</nav>

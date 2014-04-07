@@ -49,7 +49,7 @@ class WordsController < ApplicationController
 
     case order.upcase
     when "ALPHA"
-      @words = @words.order(:wordcontspelling)
+      @words = @words.order(:spelling)
     when "TIME"
       @words = @words.order("DATE(created_at) DESC")
     else

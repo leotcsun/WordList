@@ -1,9 +1,16 @@
+<div id="top"></div>
 <% @words.each_with_index do |word, i| %>
     <div class="row">
         <div class="col-sm-4 word-spelling bg-info" data-index="<%= i %>"><%= word.spelling %></div>
         <div class="col-sm-8 bg-danger word-spelling" id="word-definition-<%= i %>"><%= word.definition %></div>
     </div>
+
+    <% if i % 15 == 0 && i > 0 %>
+        <div class="navbar navbar-default">
+
+            <a href="#top" class="btn btn-danger btn-sm">TOP</a> Group <%= i / 15 %><br>
+        </div>
+    <% end %>
 <% end %>
 
-
-
+<br>

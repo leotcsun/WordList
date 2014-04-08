@@ -15,4 +15,9 @@ class ListsController < ApplicationController
     redirect_to :lists
   end
 
+  def show
+    @list = List.find(params[:id])
+    @words = @list.words
+  end
+
 end

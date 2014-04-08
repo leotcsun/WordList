@@ -31,13 +31,7 @@ class WordsController < ApplicationController
   end
 
   def index
-    if params[:list_id]
-      @words = Word.where(:list_id => params[:list_id])
-    else
-      @words = Word.all
-    end
-
-    @words = params[:reverse] ? @words.order("spelling DESC") : @words.order(:spelling)
+    @words = Word.all
   end
 
   def test

@@ -16,8 +16,10 @@ class ListsController < ApplicationController
   end
 
   def show
+    order = params[:reverse] ? "DESC" : "ASC"
+
     @list = List.find(params[:id])
-    @words = @list.words
+    @words = @list.words.order("spelling #{order}")
   end
 
 end

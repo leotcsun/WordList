@@ -7,9 +7,9 @@
             <%= list.name %>
         </div>
         <div class="col-sm-8">
-            <%= link_to "S", words_path(:list_id => list.id), { :class => "btn btn-success btn-sm"} %>
-            <%= link_to "R", words_path(:list_id => list.id, :reverse => true), { :class => "btn btn-danger btn-sm"} %>
-            <%= link_to "Test", test_path(:list_id => list.id), { :class => "btn btn-primary btn-sm"} %>
+            <%= link_to "S", list_path(list.id), { :class => "btn btn-success btn-sm"} %>
+            <%= link_to "R", list_path(list.id, :reverse => true), { :class => "btn btn-danger btn-sm"} %>
+            <%= link_to "Test", list_path(list.id), { :class => "btn btn-primary btn-sm"} %>
         </div>
     </div>
 

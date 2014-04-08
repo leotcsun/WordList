@@ -32,12 +32,12 @@ class WordsController < ApplicationController
 
   def index
     if params[:list_id]
-      @words = Word.where(:list_id => params[:list_id]).page(params[:page])
+      @words = Word.where(:list_id => params[:list_id])
     else
-      @words = Word.all.page(params[:page])
+      @words = Word.all
     end
 
-    # @words = @words.order(:spelling)
+    @words = @words.order(:spelling)
   end
 
   def test

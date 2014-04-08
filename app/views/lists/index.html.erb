@@ -1,4 +1,4 @@
-<%= link_to "Create a New List", new_list_path %>
+<%= link_to "Create a New List", new_list_path, { :class => "btn btn-default"} %>
 <br><br>
 
 <% @lists.each do |list| %>
@@ -7,7 +7,9 @@
             <%= link_to list.name, words_path(:list_id => list.id) %>
         </div>
         <div class="col-sm-8">
-            <%= link_to "Test", test_path(:list_id => list.id) %>
+            <%= link_to "Test", test_path(:list_id => list.id), { :class => "btn btn-primary btn-sm"} %>
         </div>
     </div>
+
+    <br>
 <% end %>

@@ -37,7 +37,7 @@ class WordsController < ApplicationController
       @words = Word.all
     end
 
-    @words = @words.order(:spelling)
+    @words = params[:reverse] ? @words.order("spelling DESC") : @words.order(:spelling)
   end
 
   def test

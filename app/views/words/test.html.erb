@@ -1,6 +1,8 @@
-<%= link_to "Random", test_path(:order => "RANDOM") %>
-<%= link_to "Alphabetical", test_path(:order => "ALPHA") %>
-<%= link_to "TimeAdded", test_path(:order => "TIME") %>
+<div class="navbar navbar-default" role="navigation">
+    <%= link_to "Random", test_path(:order => "RANDOM"), { :class => "btn btn-default" } %>
+    <%= link_to "Alphabetical", test_path(:order => "ALPHA"), { :class => "btn btn-default" } %>
+    <%= link_to "TimeAdded", test_path(:order => "TIME"), { :class => "btn btn-default" } %>
+</div>
 
 <% @words.each_with_index do |word, i| %>
     <div class="row">
@@ -16,4 +18,13 @@
 <div id="click-counter">
     <div id="click"></div>
     <div id="total">/ <%= @words.size %></div>
+</div>
+
+<br>
+
+
+<div class="navbar navbar-default" role="navigation">
+    <%= link_to "Random", test_path(:order => "RANDOM"), { :class => "btn btn-default" } %>
+    <%= link_to "Alphabetical", test_path(:order => "ALPHA"), { :class => "btn btn-default" } %>
+    <%= link_to "TimeAdded", test_path(:order => "TIME"), { :class => "btn btn-default" } %>
 </div>

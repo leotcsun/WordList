@@ -27,7 +27,7 @@ class WordsController < ApplicationController
       Word.create(:spelling => spelling, :definition => definition, :list_id => list_id)
     end
 
-    redirect_to :controller => :words, :action => :index, :list_id => list_id
+    redirect_to :controller => :lists, :action => :show, :id => list_id
   end
 
   def index

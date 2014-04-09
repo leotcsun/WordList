@@ -15,7 +15,7 @@ class WordsController < ApplicationController
     words.each do |word|
       next if word.strip.empty?
 
-      if delimiter.blank?
+      if delimiter.blank? || !word.include?(delimiter)
         index = word.index(" ")
         pair = [word[0..index], word[(index+1)..word.size]]
       else

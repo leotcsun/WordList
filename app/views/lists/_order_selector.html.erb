@@ -1,0 +1,5 @@
+<div class="navbar navbar-default" role="navigation">
+    <%= link_to "Random", test_path(:id => @list.id, :order => "RANDOM"), { :class => "btn btn-default" } %>
+    <%= link_to "Alphabetical", test_path(:id => @list.id, :order => "ALPHA"), { :class => "btn btn-default" } %>
+    <%= link_to "TimeAdded", test_path(:id => @list.id, :order => "TIME"), { :class => "btn btn-default" } %>
+</div>

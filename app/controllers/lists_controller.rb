@@ -22,4 +22,20 @@ class ListsController < ApplicationController
     @words = @list.words.order("spelling #{order}")
   end
 
+  def test
+    @list = List.find(params[:id])
+    @words = @list.words
+
+    order = params[:order] ? params[:order] : "RANDOM"
+
+    case order.upcase
+    when "ALPHA"
+      @words = @words.order(:spelling)
+    when "TIME"
+      @words = @words.order("DATE(created_at) DESC")
+    else
+      @words = @words.order("RANDOM()")
+    end
+  end
+
 end

@@ -6,7 +6,7 @@
         <br>
         <%= f.text_field :delimiter, { :value => "#" } %>
         <br><br>
-        <%= collection_select(:words, :list_id, @lists, :id, :name, prompt: true) %>
+        <%= f.select(:list_id, @list_options, :selected => @list_id) %>
         <br><br>
         <%= f.label :content %>
         <br>

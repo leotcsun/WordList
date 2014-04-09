@@ -2,6 +2,8 @@ class WordsController < ApplicationController
 
   def new
     @lists = List.all
+    @list_options = @lists.map { |list| [list.name, list.id] }
+    @list_id = params[:list_id]
   end
 
   def show

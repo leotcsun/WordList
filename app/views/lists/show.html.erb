@@ -7,7 +7,7 @@
 
     <!-- UGLY!!! -->
     <!-- display a TOP button after every 15 words and at the very bottom of the page -->
-    <% if i % 15 == 0 && i > 0 || i + 1 == @words.size %>
+    <% if i % 10 == 0 && i > 0 || i + 1 == @words.size %>
         <div class="navbar navbar-default">
             <a href="#top" class="btn btn-danger btn-sm">TOP</a> Group <%= (i / 15.0).ceil %><br>
         </div>

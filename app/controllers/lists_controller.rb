@@ -10,9 +10,9 @@ class ListsController < ApplicationController
 
   def create
     name = params[:list][:name]
-    List.create(:name => name)
+    list = List.create(:name => name)
 
-    redirect_to :lists
+    redirect_to :controller => :words, :action => :new, :list_id => list.id
   end
 
   def show
